@@ -1,5 +1,8 @@
 package sg.edu.nus.iss.ssf14_workshoprevision.repository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -29,5 +32,16 @@ public class ContactsRedis {
                                 .get(CONTACT_LIST + "_HASH", contactId);
 
         return contact;
+    }
+
+    public List<String> getAllContacts() {
+
+        List<String> contacts = 
+                template.opsForHash().values(CONTACT_LIST + "_HASH").stream()
+                        .filter(v -> v instanceof Contact)
+                        .map(v -> (Contact) v)
+                        .map(v -> v.getId())
+                        .collect(Collectors.toList());
+        return contacts;
     }
 }

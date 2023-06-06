@@ -1,5 +1,6 @@
 package sg.edu.nus.iss.ssf14_workshoprevision.service;
 
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 import sg.edu.nus.iss.ssf14_workshoprevision.model.Contact;
@@ -20,5 +21,9 @@ public class ContactService {
 
     public Contact getContactById(String contactId) {
         return repo.getContactById(contactId);
+    }
+
+    public List<String> getAllContacts() {
+        return repo.getAllContacts();
     }
 }

@@ -50,4 +50,11 @@ public class ContactController {
         model.addAttribute("contact", service.getContactById(contactId));
         return "contact";
     }
+
+    @GetMapping(path = "/list")
+    public String getAllContacts(Model model) {
+
+        model.addAttribute("contacts", service.getAllContacts());
+        return "list";
+    }
 }
