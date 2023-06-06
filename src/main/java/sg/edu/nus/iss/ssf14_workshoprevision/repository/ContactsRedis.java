@@ -21,7 +21,6 @@ public class ContactsRedis {
 
     public void saveContactToRedis(Contact contact) {
 
-        template.opsForList().leftPush(CONTACT_LIST, contact.getId());
         template.opsForHash().put(CONTACT_LIST + "_HASH", 
                                         contact.getId(), contact);        
     }
