@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <span th:if="${successMsg}" th:text="${successMsg}"></span>
+
+        <br>
+        <a th:href="@{/api/home}">Address Book</a>
+        <hr>
+        <h1>Contact</h1>
+
+        <br>
+        <div th:object="${contact}">
+            <p>
+                Id:
+                <br>
+                <span th:text="*{id}"></span>
+            </p>
+
+            <br>
+            <p>
+                Name:
+                <br>
+                <span th:text="*{name}"></span>
+            </p>
+
+            <br>
+            <p>
+                Email:
+                <br>
+                <span th:text="*{email}"></span>
+            </p>
+
+            <br>
+            <p>
+                Phone Number:
+                <br>
+                <span th:text="*{phoneNumber}"></span>
+            </p>
+
+            <br>
+            <p>
+                Date of Birth:
+                <br>
+                <span th:text="*{dateOfBirth}"></span>
+            </p>
+
+            <p>
+                Age:
+                <br>
+                <span th:text="*{age}"></span>
+            </p>
+        </div>
+    </body>
+</html>

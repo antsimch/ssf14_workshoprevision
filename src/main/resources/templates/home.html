@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div>
+            <h1>Address Book</h1>
+        </div>
+
+        <hr>
+        <div>
+            <h2>Add New Contact</h2>
+
+            <br>
+            <form action="#" method="POST" th:action="@{/api/contact}" th:object="${contact}">
+                
+                <div>
+                    Name: 
+                    <input type="text" th:field="*{name}" placeholder="Name">
+                    <br>
+                    <span th:errorclass="error" th:if="${#fields.hasErrors()}" th:text="*{name}"></span>
+                </div>
+                
+                <br>
+                <div>
+                    Email: 
+                    <input type="text" th:field="*{email}" placeholder="Email">
+                    <br>
+                    <span th:errorclass="error" th:if="${#fields.hasErrors()}" th:text="*{email}"></span>
+                </div>
+
+                <br>
+                <div>
+                    Phone Number: 
+                    <input type="text" th:field="*{phoneNumber}" placeholder="Phone Number">
+                    <br>
+                    <span th:errorclass="error" th:if="${#fields.hasErrors()}" th:text="*{phoneNumber}"></span>
+                </div>
+
+                <br>
+                <div>
+                    Date of Birth: 
+                    <input type="date" th:field="*{dateOfBirth}">
+                    <br>
+                    <span th:errorclass="error" th:if="${#fields.hasErrors()}" th:text="*{phoneNumber}"></span>
+                    <br>
+                    <span th:errorclass="error" th:if="${#fields.hasErrors()}" th:text="*{age}"></span>
+                </div>
+
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </body>
+</html>
